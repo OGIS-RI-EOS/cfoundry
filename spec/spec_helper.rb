@@ -1,3 +1,15 @@
+begin
+  require 'simplecov'
+  require 'simplecov-rcov'
+rescue LoadError
+  # ignore
+else
+  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+  SimpleCov.start 'rails' do
+    add_filter "/vendor/"
+  end
+end
+
 SPEC_ROOT = File.dirname(__FILE__).freeze
 
 require "rspec"
